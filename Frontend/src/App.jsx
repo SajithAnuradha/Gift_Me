@@ -4,10 +4,11 @@ import { Routes,Route } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Cart from './Pages/Cart/Cart'
 import Placeorder from './Pages/Placeorder/Placeorder'
-
+import Footer from './Components/Footer/Footer'
 
 function App() {
   return (
+    <>
     <div className='app'  >
       <Navbar />
       <Routes>
@@ -16,6 +17,8 @@ function App() {
        <Route path='/order' element={<Placeorder/>}></Route>
       </Routes>
     </div>
+    <Footer/>
+    </>
   )
 }
 
