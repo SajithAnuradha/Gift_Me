@@ -7,15 +7,18 @@ import Placeorder from './Pages/Placeorder/Placeorder'
 import Footer from './Components/Footer/Footer'
 import LoginPopup from './Components/LoginPopup/LoginPopup'
 import { useState } from 'react'
+import Searchbar from './Components/Searchbar/Searchbar'
 
 function App() {
   const [showLogin,setShowLogin]=useState(false)
+  const [showSearch,setSearch]=useState(false)
   return (
     
     <>
     {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
+    {showSearch?<Searchbar setSearch={setSearch}/>:<></>}
     <div className='app'  >
-      <Navbar  setShowLogin={setShowLogin}/>
+      <Navbar  setShowLogin={setShowLogin} setSearch={setSearch} />
       <Routes>
        <Route path='/' element={<Home/>}></Route>
        <Route path='/cart' element={<Cart/>}></Route>
