@@ -17,7 +17,9 @@ function Navbar() {
               <li onClick={()=>setMenu("contact-us")} className={menu==="contact-us"? "active":""}>Contact Us</li>
              </ul>
              <div className="navbar-right">
+                
                 <img src={assets.search_icon} alt="" className="search-icon" />
+               
                 <div className="navbar-search-icon">
                     <img src={assets.basket_icon} alt="" className="basket-icon" />
                     <div className="dot">
@@ -27,7 +29,7 @@ function Navbar() {
                 </div>
                 <button>
                         sign in
-                    </button>
+                </button>
              </div>
         </div>
     )
