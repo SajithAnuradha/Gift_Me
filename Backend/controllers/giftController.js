@@ -7,7 +7,7 @@ import fs from 'fs';
 const addgift = async (req, res) => {
     let image_filename = `${req.file.filename}`
 
-    const gift = new foodModel({
+    const gift = new giftModel({
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,

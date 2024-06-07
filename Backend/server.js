@@ -18,7 +18,7 @@ app.use("/images", express.static('uploads'))
 connectDB();
 //api endpoints
 
-app.use("/api/food", giftRouter)
+app.use("/api/gift", giftRouter)
 
 app.get("/", (req, res) => {
     res.send("ÄPI is working")
