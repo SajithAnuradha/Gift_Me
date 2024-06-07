@@ -24,7 +24,7 @@ function Navbar({setShowLogin,setSearch,role}) {
                 <img onClick={()=>setSearch(true)} src={assets.search_icon} alt="" className="search-icon" />
                 <div className="navbar-search-icon">
                { role ==='user'?<Link to='/cart'>    <img  src={assets.basket_icon} alt="" className="basket-icon" />
-                </Link>:<Link to='/dashboard'>    <img  src={assets.dashboard_icon} alt="" className="dashboard-icon" />
+                </Link>:<Link to='/admin'>    <img  src={assets.dashboard_icon} alt="" className="dashboard-icon" />
                 </Link>}
                     {
                         getTotalCartAmount()? <div className='dot'></div>:<></>
