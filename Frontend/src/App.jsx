@@ -12,15 +12,18 @@ import Dashboard from './Pages/Admin/Dashboard/Dashboard'
 import Add from './Pages/Admin/Add/Add'
 import List from './Pages/Admin/List/List'
 import Order from './Pages/Admin/Order/Order'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [role,setRole]=useState('admin')
+  const [role,setRole]=useState('user')
   const [showLogin,setShowLogin]=useState(false)
   const [showSearch,setSearch]=useState(false)
   return (
     
     <>
-    {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
+    <ToastContainer/>
+    {showLogin?<LoginPopup setShowLogin={setShowLogin} setRole={setRole}/>:<></>}
     {showSearch & role==='user'?<Searchbar setSearch={setSearch}/>:<></>}
     <div className='app'  >
       <Navbar  setShowLogin={setShowLogin} setSearch={setSearch} role={role} />

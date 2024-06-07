@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import giftRouter from './routes/giftRoute.js';
-
+import userRouter from './routes/userRoute.js';
+import 'dotenv/config'
 
 // app config
 const app = express();
@@ -19,6 +20,7 @@ connectDB();
 //api endpoints
 
 app.use("/api/gift", giftRouter)
+app.use("/api/user", userRouter)
 
 app.get("/", (req, res) => {
     res.send("ÄPI is working")

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Add.css'
 import {assets} from '../../../assets/AdminAssets/assets'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 function Add() {
 
     const url='http://localhost:4000'
@@ -43,9 +44,10 @@ function Add() {
                 category:'Salad'
             })
             setImage(false)
+        toast.success(response.data.message)
         }
         else{
-            console.log('Error')
+           toast.error(response.data.message)
         }
 
 
