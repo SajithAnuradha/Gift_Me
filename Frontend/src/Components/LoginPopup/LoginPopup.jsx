@@ -1,7 +1,7 @@
 import React from 'react'
 import './LoginPopup.css'
 import { useState } from 'react'
-import { assets } from '../../assets/assets'
+import { assets } from '../../assets/UserAssets/assets.js'
 
 function LoginPopup({setShowLogin}) {
 

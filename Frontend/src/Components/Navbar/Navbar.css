@@ -63,6 +63,11 @@
     right: -8px;
 }
 
+.navbar-search-icon .dashboard-icon {
+    width: 5%;
+    cursor: pointer;
+    justify-content: center;
+}
 
 @media (max-width:1050px) {
     .navbar .logo {
