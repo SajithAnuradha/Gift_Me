@@ -1,20 +1,20 @@
 import React from 'react'
 import { assets } from '../../assets/UserAssets/assets'
-import './FoodItem.css'
+import './GiftItem.css'
 import { useState } from 'react'
 import { StoreContext } from '../../context/StoreContext'
 import { useContext } from 'react'
 
-const FoodItem =({id,name,price,description,image})=>{
+const GiftItem =({id,name,price,description,image})=>{
 
 
-const {cartItems,addToCart,removecart}=useContext(StoreContext)
+const {cartItems,addToCart,removecart,url}=useContext(StoreContext)
 
 return(
 
     <div className='food-item'>
         <div className="food-item-img-container">
-            <img className='food-item-img' src={image} alt=''/>
+            <img className='food-item-img' src={url+'/images/'+image} alt=''/>
             {
                ! cartItems[id]
                ? <img className='add' onClick={()=>addToCart(id)} src={assets.add_icon_white} alt=''/>
@@ -52,4 +52,4 @@ return(
 
 }
 
-export default FoodItem
+export default GiftItem
