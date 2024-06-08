@@ -14,6 +14,7 @@ import List from './Pages/Admin/List/List'
 import Order from './Pages/Admin/Order/Order'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Verify from './Pages/User/Verify/Verify'
 
 function App() {
   const [role,setRole]=useState('user')
@@ -41,7 +42,7 @@ function App() {
                <Route path='/admin/list' element={<List/>}></Route>
                <Route path='/admin/order' element={<Order/>}></Route>
         
-               
+               <Route path='/verify' element={<Verify/>}></Route>
 
 
         </Routes>
