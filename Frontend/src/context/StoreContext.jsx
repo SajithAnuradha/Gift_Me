@@ -2,6 +2,7 @@ import { createContext, useEffect } from "react";
 // import { food_list } from "../assets/UserAssets/assets";
 import { useState } from "react";
 import axios from "axios";
+import {toast} from "react-toastify"
 
 export const StoreContext = createContext(null);
 
@@ -18,10 +19,17 @@ const StoreContextProvider = (props) => {
       }
       else {
         console.log(response.data.message)
-      }
+      }  }
 
 
-     }
+    const loadCartData=async(token)=>{
+      const response=await axios.post(url+"/api/cart/get",{},{headers:{token}})
+      console.log(response.data.cartData)
+    
+        setCartItems(response.data.cartData)
+      
+      
+    }
 
 
     const addToCart=async (itemId)=>{
@@ -32,7 +40,8 @@ const StoreContextProvider = (props) => {
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         }
         if (token){
-          await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+         const response= await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+          toast.success(response.data.message)
 
         }
 
@@ -42,8 +51,13 @@ const StoreContextProvider = (props) => {
 
          
     }
-    const removecart=(itemId)=>{
+    const removecart= async (itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
+
+        if (token){
+           const response=await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
+           toast.message(response.data.message)
+        }
   
   
       }
@@ -67,11 +81,15 @@ const StoreContextProvider = (props) => {
   useEffect(()=>{
     
     async function loadData (){
+
       await fetchGiftList()
       if (localStorage.getItem("token")){
         setToken(localStorage.getItem("token"))
+        await loadCartData(localStorage.getItem("token"))
       }
     }
+
+
     loadData();
   },[])
 
