@@ -2,7 +2,7 @@
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import validator from 'validator'
-import adminModel from "../models/adminModel";
+import adminModel from "../models/adminModel.js";
 
 
 

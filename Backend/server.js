@@ -6,7 +6,7 @@ import userRouter from './routes/userRoute.js';
 import 'dotenv/config'
 import cartRouter from './routes/cartRoute.js';
 import orderRouter from './routes/orderRoute.js';
-
+import adminRouter from './routes/adminRoute.js';
 // app config
 const app = express();
 
@@ -25,6 +25,7 @@ app.use("/api/gift", giftRouter)
 app.use("/api/user", userRouter)
 app.use("/api/cart", cartRouter)
 app.use("/api/order", orderRouter)
+app.use("/api/admin", adminRouter)
 
 app.get("/", (req, res) => {
     res.send("ÄPI is working")
