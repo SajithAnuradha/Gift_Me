@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import {toast} from "react-toastify"
 
+
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
@@ -11,6 +12,7 @@ const StoreContextProvider = (props) => {
      const url='http://localhost:4000';
      const [token,setToken]=useState("")
      const [gift_list,setGiftList]=useState([])
+     const [role,setRole]=useState("")
      
      const fetchGiftList=async ()=>{
       const response=await axios.get(url+"/api/gift/list")
@@ -21,10 +23,24 @@ const StoreContextProvider = (props) => {
         console.log(response.data.message)
       }  }
 
+    const fetchRole=async (token)=>{
+      if (token){
+      const response=await axios.post(url+"/api/role/find",{},{headers:{token}})
+      if (response.success ){
+        setRole(response.data.data)
+
+      }
+      
+      }
+     
+
+    }
+
+
 
     const loadCartData=async(token)=>{
       const response=await axios.post(url+"/api/cart/get",{},{headers:{token}})
-      console.log(response.data.cartData)
+      // console.log(response.data.cartData)
     
         setCartItems(response.data.cartData)
       
@@ -44,14 +60,14 @@ const StoreContextProvider = (props) => {
           toast.success(response.data.message)
 
         }
+}
 
 
 
-   
 
-         
-    }
-    const removecart= async (itemId)=>{
+
+
+const removecart= async (itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
 
         if (token){
@@ -85,6 +101,8 @@ const StoreContextProvider = (props) => {
       await fetchGiftList()
       if (localStorage.getItem("token")){
         setToken(localStorage.getItem("token"))
+        fetchRole(token)
+       
         await loadCartData(localStorage.getItem("token"))
       }
     }
@@ -97,7 +115,7 @@ const StoreContextProvider = (props) => {
 
    const contextValue = {
     gift_list,cartItems,setCartItems,addToCart,removecart,getTotalCartAmount,url,
-    setToken,token
+    setToken,token,role
     };
 
 

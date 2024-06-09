@@ -22,7 +22,7 @@ const loginUser = async (req, res) => {
         if (!isMatch) {
             return res.json({ success: false, message: "Invalid Credentials" })
         }
-        const token = createToken(user._id);
+        const token = createToken(user._id, 'user');
         return res.json({ success: true, token })
 
 
@@ -33,8 +33,8 @@ const loginUser = async (req, res) => {
 
 }
 
-const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET)
+const createToken = (id, role) => {
+    return jwt.sign({ id, role }, process.env.JWT_SECRET)
 }
 
 
@@ -67,7 +67,7 @@ const registerUser = async (req, res) => {
             role: "user"
         })
         const user = await newUser.save();
-        const token = createToken(user._id)
+        const token = createToken(user._id, 'user')
         res.json({ success: true, token })
 
 

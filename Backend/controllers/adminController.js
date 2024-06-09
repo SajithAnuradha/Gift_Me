@@ -23,7 +23,7 @@ const loginAdmin = async (req, res) => {
         if (!isMatch) {
             return res.json({ success: false, message: "Invalid Credentials" })
         }
-        const token = createToken(admin._id);
+        const token = createToken(admin._id, 'admin');
         return res.json({ success: true, token })
 
 
@@ -34,8 +34,8 @@ const loginAdmin = async (req, res) => {
 
 }
 
-const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET)
+const createToken = (id, role) => {
+    return jwt.sign({ id, role }, process.env.JWT_SECRET)
 }
 
 
@@ -68,7 +68,7 @@ const registerAdmin = async (req, res) => {
             role: "admin"
         })
         const admin = await newAdmin.save();
-        const token = createToken(admin._id)
+        const token = createToken(admin._id, 'admin')
         res.json({ success: true, token })
 
 

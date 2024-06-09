@@ -4,7 +4,7 @@ import {assets} from '../../assets/UserAssets/assets'
 import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from '../../context/StoreContext';
 
-function Navbar({setShowLogin,setSearch,role}) {
+function Navbar({setShowLogin,setSearch,role,setrole}) {
 
    const [menu,setMenu]=useState("home");
    const {getTotalCartAmount,token,setToken}=useContext(StoreContext);
@@ -12,7 +12,8 @@ function Navbar({setShowLogin,setSearch,role}) {
    const logout=()=>{
     localStorage.removeItem("token")
     setToken("");
-    navigate('/')
+    navigate('/');
+    setrole("user")
 
    }
 

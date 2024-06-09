@@ -28,7 +28,7 @@ function App() {
     {showLogin?<LoginPopup setShowLogin={setShowLogin} setRole={setRole}/>:<></>}
     {showSearch & role==='user'?<Searchbar setSearch={setSearch}/>:<></>}
     <div className='app'  >
-      <Navbar  setShowLogin={setShowLogin} setSearch={setSearch} role={role} />
+      <Navbar  setShowLogin={setShowLogin} setSearch={setSearch} role={role} setRole={setRole}/>
      
       <Routes  >
        

@@ -10,7 +10,8 @@ import { toast } from 'react-toastify'
 function LoginPopup({setShowLogin,setRole}) {
 
   const [currentState,setCurrentState]=useState("Sign Up")
-  const {url,setToken}=useContext(StoreContext)
+  const {url,setToken,role}=useContext(StoreContext)
+  // setRole(role)
   
   const[data,setData]=useState({
     name:"",
@@ -21,7 +22,7 @@ function LoginPopup({setShowLogin,setRole}) {
   const onChangeHandler=(event)=>{
     const name=event.target.name;
     const value=event.target.value;
-    setData(date=>({...data,[name]:value}))
+    setData(data=>({...data,[name]:value}))
 
     
 
@@ -41,6 +42,7 @@ function LoginPopup({setShowLogin,setRole}) {
     const response= await axios.post(newUrl,data)
     if (response.data.success){
       setToken(response.data.token)
+      setRole(role)
       localStorage.setItem("token",response.data.token)
       setShowLogin(false)
 
@@ -66,7 +68,8 @@ function LoginPopup({setShowLogin,setRole}) {
             <img onClick={()=>setShowLogin(false)}src={assets.cross_icon} alt=''/>
         </div>
         <div className="login-popup-input">
-            {currentState==="Login" ? <></> :    <input  name='name' onChange={onChangeHandler} value={data.name} type="text" placeholder="Your name" required/>}
+            {currentState==="Login" ? <></> :    <input  name='name' onChange={onChangeHandler} value={data.name} type="text" placeholder="Your name" required/>
+                                                   }
          
             <input name='email' onChange={onChangeHandler} value={data.email} type="email" placeholder="Your email" required/>
             <input name='password' onChange={onChangeHandler} value={data.password} type="password" placeholder="Password" required/>
