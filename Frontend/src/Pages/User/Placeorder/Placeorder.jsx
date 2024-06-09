@@ -2,6 +2,9 @@ import React, { useContext, useEffect,useState } from 'react'
 import './Placeorder.css'
 import  { StoreContext } from '../../../context/StoreContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+
 
 
 function Placeorder() {
@@ -46,11 +49,18 @@ function Placeorder() {
 
        
   }
+const navigate=useNavigate();
 
+useEffect(()=>{
+ if (!token){
+  navigate('/cart')
 
-// useEffect(()=>{
-//  console.log(data)
-// },[data])
+ }
+ else if (getTotalCartAmount()===0){
+    navigate('/cart')
+    toast.error("Cart is Empty")
+ }
+},[data])
 
  const  onChangeHandler=(event)=>{
   const name=event.target.name;

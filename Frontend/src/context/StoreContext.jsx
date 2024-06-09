@@ -56,7 +56,7 @@ const StoreContextProvider = (props) => {
 
         if (token){
            const response=await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
-           toast.message(response.data.message)
+           toast.success(response.data.message)
         }
   
   

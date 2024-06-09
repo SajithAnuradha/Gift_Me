@@ -43,7 +43,7 @@ function Navbar({setShowLogin,setSearch,role}) {
                 </button>:<div className='navbar-profile'>
                     <img src={assets.profile_icon} alt=''/>
                     <ul className='nav-profile-dropdown'>
-                        <li> <img src={assets.bag_icon} alt=''/>
+                        <li onClick={()=>navigate('/myorders')}  > <img src={assets.bag_icon} alt=''/>
                         <p>Orders</p></li>
                         <hr/>
                         <li onClick={logout}><img src={assets.logout_icon} alt=''/>
