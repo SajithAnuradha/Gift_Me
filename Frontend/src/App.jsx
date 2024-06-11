@@ -16,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Verify from './Pages/User/Verify/Verify'
 import Myorders from './Pages/User/Myorders/Myorders'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   const [role,setRole]=useState('user')
@@ -27,10 +28,12 @@ function App() {
     <ToastContainer/>
     {showLogin?<LoginPopup setShowLogin={setShowLogin} setRole={setRole}/>:<></>}
     {showSearch & role==='user'?<Searchbar setSearch={setSearch}/>:<></>}
+    <Navbar  setShowLogin={setShowLogin} setSearch={setSearch} role={role} setRole={setRole}/>
     <div className='app'  >
-      <Navbar  setShowLogin={setShowLogin} setSearch={setSearch} role={role} setRole={setRole}/>
+      <Outlet/>
+      
      
-      <Routes  >
+      {/* <Routes  >
        
         <Route path='/' element={<Home/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
@@ -47,7 +50,7 @@ function App() {
                <Route path='/myorders' element={<Myorders/>}></Route>
 
 
-        </Routes>
+        </Routes> */}
        
     </div>
     <Footer/>
