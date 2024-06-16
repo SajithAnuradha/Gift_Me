@@ -4,7 +4,7 @@ import { Navigate, useLocation } from "react-router-dom";
 // import { Spinner } from "flowbite-react";
 
 function PrivateadminRoute({ children }) {
-  const {role, token } = useContext(StoreContext);
+  const { token ,role} = useContext(StoreContext);
 
   const loaction = useLocation();
 //   console.log(user, loading, token);

@@ -1,5 +1,4 @@
 import { createContext, useEffect } from "react";
-// import { food_list } from "../assets/UserAssets/assets";
 import { useState } from "react";
 import axios from "axios";
 import {toast} from "react-toastify"
@@ -23,18 +22,22 @@ const StoreContextProvider = (props) => {
         console.log(response.data.message)
       }  }
 
+
     const fetchRole=async (token)=>{
+    
       if (token){
+
+        console.log("fetch role")
       const response=await axios.post(url+"/api/role/find",{},{headers:{token}})
-      if (response.success ){
+      if (response.data.success ){
         setRole(response.data.data)
+        
+        console.log(response.data.data)
 
       }
       
       }
-     
-
-    }
+     }
 
 
 
@@ -97,11 +100,11 @@ const removecart= async (itemId)=>{
   useEffect(()=>{
     
     async function loadData (){
-
+    console.log("load data")
       await fetchGiftList()
       if (localStorage.getItem("token")){
         setToken(localStorage.getItem("token"))
-        fetchRole(token)
+        fetchRole(localStorage.getItem("token"))
        
         await loadCartData(localStorage.getItem("token"))
       }

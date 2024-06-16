@@ -9,9 +9,7 @@ import StoreContextProvider from "./context/StoreContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
  <React.StrictMode>
     <StoreContextProvider>
-     
-
-        <RouterProvider router={Router}  />
+      <RouterProvider router={Router}  />
     </StoreContextProvider>
   </React.StrictMode>
   

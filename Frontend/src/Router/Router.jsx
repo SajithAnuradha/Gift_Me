@@ -19,6 +19,7 @@ import PrivateadminRoute from '../PrivateRoute/PrivateadminRoute'
 import PrivateuserRoute from '../PrivateRoute/PrivateuserRoute'
 import Order from '../Pages/Admin/Order/Order'
 import Cart from '../Pages/User/Cart/Cart'
+import Placeorder from '../Pages/User/Placeorder/Placeorder'
 
 
 
@@ -72,7 +73,7 @@ const router=createBrowserRouter([
         path:"/order",
         element:(
             <PrivateuserRoute>
-                <Order/>
+                <Placeorder/>
             </PrivateuserRoute>
         )
     },
