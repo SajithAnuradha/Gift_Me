@@ -23,6 +23,8 @@ const StoreContextProvider = (props) => {
       }  }
 
 
+
+
     const fetchRole=async (token)=>{
     
       if (token){
@@ -123,7 +125,7 @@ const removecart= async (itemId)=>{
 
    const contextValue = {
     gift_list,cartItems,setCartItems,addToCart,removecart,getTotalCartAmount,url,
-    setToken,token,role
+    setToken,token,role,setRole
     };
 
 

@@ -5,8 +5,46 @@ import { Link,NavLink } from 'react-router-dom'
 
 function Sidebar() {
   return (
-    <div className='sidebar'>
-        <div className='sidebar-options'>
+    <div className='sidebar-menu'>
+        <div className="logo">
+           <img src={assets.logo} alt=''/>
+           
+        </div>
+
+
+        <div className='menu-list'>
+            <a href='#' className='item'>
+                <img src={assets.add_icon} alt=''/>
+                <p>Add Items</p>
+
+            </a>
+            <a href='#' className='item'>
+                <img src={assets.order_icon} alt=''/>
+                <p>Order Items</p>
+
+            </a>
+            <a href='#' className='item'>
+                <img src={assets.order_icon} alt=''/>
+                <p> Gifts List</p>
+
+            </a>
+
+
+        </div>
+        
+        
+    </div>
+  )
+}
+
+export default Sidebar
+
+
+
+
+
+
+{/* <div className='sidebar-options'>
             <NavLink to='/admin/add' className="sidebar-option">
                 <img src={assets.add_icon} alt=''/>
                 <p>Add Items</p>
@@ -21,10 +59,4 @@ function Sidebar() {
             </NavLink>
 
 
-        </div>
-        
-    </div>
-  )
-}
-
-export default Sidebar
+        </div> */}

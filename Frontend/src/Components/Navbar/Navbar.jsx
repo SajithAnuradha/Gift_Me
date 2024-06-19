@@ -8,20 +8,19 @@ function Navbar({setShowLogin,setSearch}) {
 
    const [menu,setMenu]=useState("home");
 
-   const {getTotalCartAmount,token,setToken,setRole,role}=useContext(StoreContext);
+const {getTotalCartAmount,token,setToken,role,setRole}=useContext(StoreContext);
 
-   const navigate=useNavigate();
+const navigate=useNavigate();
 
-   const logout=()=>{
-    localStorage.removeItem("token")
+const logout=()=>{
+ localStorage.removeItem("token")
 
-    setToken("");
+ setToken("");
 
-    navigate('/');
+ navigate('/');
 
-    setRole("user")
-
-   }
+ setRole("user");
+}
 
     return (
         <div className='navbar'>

@@ -45,6 +45,7 @@ function LoginPopup({setShowLogin}) {
       setToken(response.data.token)
       // setRole(role)
       localStorage.setItem("token",response.data.token)
+      window.location.reload();
       setShowLogin(false)
 
     }
@@ -59,6 +60,7 @@ function LoginPopup({setShowLogin}) {
           // setRole(role)
           localStorage.setItem("token",response.data.token)
           setShowLogin(false)
+          window.location.reload();
         }
         else {
           toast.error(response.data.message)

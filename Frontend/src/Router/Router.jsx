@@ -36,21 +36,34 @@ const router=createBrowserRouter([
 
         ),
         children:[
-           
             {
-                path:'add',
+                path:"/admin/add",
                 element:<Add/>
-            },
-            {
-                path:"list",
-                element:<List/>
-            },
-            {
-                path:"order",
-                element:<Order/>
             }
         ]
-    },{
+
+    },
+            // {
+            //     path:'/admin/add',
+            //     element:(
+            //     <PrivateadminRoute>
+            //     <Add/>
+            //     </PrivateadminRoute>)
+            // },
+            {
+                path:"admin/list",
+                element:(<PrivateadminRoute>
+                    <List/>
+                </PrivateadminRoute>)
+            },
+            {
+                path:"admin/order",
+                element:(<PrivateadminRoute>
+                    <Order/>
+                </PrivateadminRoute>)
+            },
+        
+{
         path:"/cart",
         element:(
             <PrivateuserRoute>
