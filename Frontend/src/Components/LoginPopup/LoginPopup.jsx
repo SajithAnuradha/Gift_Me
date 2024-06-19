@@ -7,10 +7,10 @@ import { StoreContext } from '../../context/StoreContext.jsx'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-function LoginPopup({setShowLogin,setRole}) {
+function LoginPopup({setShowLogin}) {
 
   const [currentState,setCurrentState]=useState("Sign Up")
-  const {url,setToken,role}=useContext(StoreContext)
+  const {url,setToken,role,setRole}=useContext(StoreContext)
   // setRole(role)
   
   const[data,setData]=useState({
@@ -39,17 +39,32 @@ function LoginPopup({setShowLogin,setRole}) {
     else {
       newUrl+="/api/user/register"
     }
+    
     const response= await axios.post(newUrl,data)
     if (response.data.success){
       setToken(response.data.token)
-      setRole(role)
+      // setRole(role)
       localStorage.setItem("token",response.data.token)
       setShowLogin(false)
 
     }
     else {
-      // alert(response.data.message)
-      toast.error(response.data.message)
+      let newUrl=url;
+      if (currentState==="Login"){
+        
+        newUrl+='/api/admin/login'
+        const response= await axios.post(newUrl,data)
+        if (response.data.success){
+          setToken(response.data.token)
+          // setRole(role)
+          localStorage.setItem("token",response.data.token)
+          setShowLogin(false)
+        }
+        else {
+          toast.error(response.data.message)
+        }
+
+      }
     }
 
 

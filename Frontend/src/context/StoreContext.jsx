@@ -37,6 +37,9 @@ const StoreContextProvider = (props) => {
       }
       
       }
+      else {
+        setRole("user")
+      }
      }
 
 
@@ -105,8 +108,10 @@ const removecart= async (itemId)=>{
       if (localStorage.getItem("token")){
         setToken(localStorage.getItem("token"))
         fetchRole(localStorage.getItem("token"))
-       
+       if (role==='user'){
         await loadCartData(localStorage.getItem("token"))
+       }
+       
       }
     }
 

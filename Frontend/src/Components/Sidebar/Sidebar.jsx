@@ -1,7 +1,7 @@
 import React from 'react'
 import './Sidebar.css'
 import {assets} from '../../assets/AdminAssets/assets'
-import { NavLink } from 'react-router-dom'
+import { Link,NavLink } from 'react-router-dom'
 
 function Sidebar() {
   return (

@@ -3,9 +3,11 @@ import './Add.css'
 import {assets} from '../../../assets/AdminAssets/assets'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useContext } from 'react'
+import { StoreContext } from '../../../context/StoreContext.jsx'
 function Add() {
-
-    const url='http://localhost:4000'
+        console.log('Add component rendered');
+    const {url}=useContext(StoreContext);
  
     const [image,setImage]=useState(false)
 

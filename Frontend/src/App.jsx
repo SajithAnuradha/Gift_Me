@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from './Components/Navbar/Navbar'
 import { Routes,Route,BrowserRouter as Router } from 'react-router-dom'
 import Home from './Pages/Home/Home'
@@ -17,18 +17,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import Verify from './Pages/User/Verify/Verify'
 import Myorders from './Pages/User/Myorders/Myorders'
 import { Outlet } from 'react-router-dom'
+import { StoreContext } from './context/StoreContext'
+
 
 function App() {
-  const [role,setRole]=useState('user')
+  const {role,setRole}=useContext(StoreContext)
+ 
   const [showLogin,setShowLogin]=useState(false)
   const [showSearch,setSearch]=useState(false)
   return (
     
     <>
     <ToastContainer/>
-    {showLogin?<LoginPopup setShowLogin={setShowLogin} setRole={setRole}/>:<></>}
+    {showLogin?<LoginPopup setShowLogin={setShowLogin} />:<></>}
     {showSearch & role==='user'?<Searchbar setSearch={setSearch}/>:<></>}
-    <Navbar  setShowLogin={setShowLogin} setSearch={setSearch} role={role} setRole={setRole}/>
+    <Navbar  setShowLogin={setShowLogin} setSearch={setSearch}/>
     <div className='app'  >
       <Outlet/>
       

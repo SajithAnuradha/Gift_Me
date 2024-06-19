@@ -17,7 +17,9 @@ function PrivateadminRoute({ children }) {
 //     );
 //   }
 
+
   if (role==='admin' && token) {
+   
     return children;
   }
 

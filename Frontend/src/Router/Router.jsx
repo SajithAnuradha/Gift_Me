@@ -1,16 +1,7 @@
 import Home from '../Pages/Home/Home'
-
-// import Placeorder from './Pages/User/Placeorder/Placeorder'
-// import Footer from './Components/Footer/Footer'
-// import LoginPopup from './Components/LoginPopup/LoginPopup'
-// import { useState } from 'react'
-// import Searchbar from './Components/Searchbar/Searchbar'
- import Dashboard from '../Pages/Admin/Dashboard/Dashboard'
+import Dashboard from '../Pages/Admin/Dashboard/Dashboard'
 import Add from '../Pages/Admin/Add/Add'
 import List from '../Pages/Admin/List/List'
-
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 import Verify from '../Pages/User/Verify/Verify'
 import Myorders from '../Pages/User/Myorders/Myorders'
 import { createBrowserRouter } from 'react-router-dom'
@@ -39,22 +30,23 @@ const router=createBrowserRouter([
         path:"/admin",
         element:(
             <PrivateadminRoute>
-                <Dashboard/>
+                <Dashboard/>{" "}
 
             </PrivateadminRoute>
 
         ),
         children:[
+           
             {
-                path:"/admin/add",
+                path:'add',
                 element:<Add/>
             },
             {
-                path:"/admin/list",
+                path:"list",
                 element:<List/>
             },
             {
-                path:"/admin/order",
+                path:"order",
                 element:<Order/>
             }
         ]
@@ -62,6 +54,7 @@ const router=createBrowserRouter([
         path:"/cart",
         element:(
             <PrivateuserRoute>
+
                 <Cart/>
                
 

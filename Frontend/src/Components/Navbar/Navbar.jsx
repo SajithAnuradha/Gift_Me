@@ -4,39 +4,57 @@ import {assets} from '../../assets/UserAssets/assets'
 import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from '../../context/StoreContext';
 
-function Navbar({setShowLogin,setSearch,role,setRole}) {
+function Navbar({setShowLogin,setSearch}) {
 
    const [menu,setMenu]=useState("home");
-   const {getTotalCartAmount,token,setToken}=useContext(StoreContext);
+
+   const {getTotalCartAmount,token,setToken,setRole,role}=useContext(StoreContext);
+
    const navigate=useNavigate();
+
    const logout=()=>{
     localStorage.removeItem("token")
+
     setToken("");
+
     navigate('/');
+
     setRole("user")
 
    }
 
     return (
         <div className='navbar'>
-         <Link to='/'>
-         <img src={assets.logo} alt="" className="logo" /></Link>   
+
+         <Link to='/'>    <img src={assets.logo} alt="" className="logo" />   </Link>   
             <ul className="navbar-menu">
+
               < Link to='/' onClick={()=>setMenu("home")} className={menu==="home"? "active":""}>Home</Link>
+
               <a href='#explore-menu' onClick={()=>setMenu("menu")} className={menu==="menu"? "active":""}>Menu</a>
+
               <a href='#app-download' onClick={()=>setMenu("mobile-app")} className={menu==="mobile-app"? "active":""}>Mobile-app</a>
               <a href='#footer' onClick={()=>setMenu("contact-us")} className={menu==="contact-us"? "active":""}>Contact Us</a>
+
+
+
              </ul>
+
              <div className="navbar-right">
                 
                 <img onClick={()=>setSearch(true)} src={assets.search_icon} alt="" className="search-icon" />
+
                 <div className="navbar-search-icon">
-               { role ==='user'?<Link to='/cart'>    <img  src={assets.basket_icon} alt="" className="basket-icon" />
-                </Link>:<Link to='/admin'>    <img  src={assets.dashboard_icon} alt="" className="dashboard-icon" />
-                </Link>}
+
+               { role !='admin'?( <Link to='/cart'>    <img  src={assets.basket_icon} alt="" className="basket-icon" />
+                </Link>):(<Link to='/admin'>    <img  src={assets.dashboard_icon} alt="" className="dashboard-icon" />
+                </Link>)}
+
                     {
                         getTotalCartAmount()? <div className='dot'></div>:<></>
                     }
+
+                 
                     
                 </div>
                 {!token?  <button onClick={()=>setShowLogin(true)}>
