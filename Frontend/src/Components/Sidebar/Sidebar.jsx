@@ -7,28 +7,32 @@ function Sidebar() {
   return (
     <div className='sidebar-menu'>
         <div className="logo">
-           <img src={assets.logo} alt=''/>
-           
+        <Link to='/'>  <img src={assets.logo} alt=''/>
+        </Link> 
         </div>
 
 
         <div className='menu-list'>
+            <Link to='/admin/add'>
             <a href='#' className='item'>
                 <img src={assets.add_icon} alt=''/>
                 <p>Add Items</p>
 
-            </a>
+            </a></Link>
+             <Link to='/admin/order'>   
             <a href='#' className='item'>
                 <img src={assets.order_icon} alt=''/>
                 <p>Order Items</p>
 
             </a>
+            </Link>
+            <Link to='/admin/list'>
             <a href='#' className='item'>
                 <img src={assets.order_icon} alt=''/>
                 <p> Gifts List</p>
 
             </a>
-
+            </Link>
 
         </div>
         

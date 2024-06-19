@@ -2,7 +2,7 @@
     display: flex;
     gap: 20px;
     background-color: #dde6ed;
-    height: 100vh;
+    /* height: 100vh; */
     padding: 20px;
 }
 
