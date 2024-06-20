@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.app-download p {
+    color: #0a8fee;
+}
+
 .app-download-platforms {
     display: flex;
     justify-content: center;

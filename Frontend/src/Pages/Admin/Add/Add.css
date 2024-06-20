@@ -1,3 +1,11 @@
+.add-container {
+    display: flex;
+    gap: 20px;
+
+    padding: 20px;
+    background-color: rgb(154, 189, 241);
+}
+
 .add {
     width: 70%;
     margin-left: max(5vw, 25px);

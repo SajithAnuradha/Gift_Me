@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './List.css'
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Sidebar from '../../../Components/Sidebar/Sidebar';
 
 const List = () => {
   const url='http://localhost:4000';
@@ -38,9 +39,16 @@ useEffect(()=>{
 
 
 
-  return (
+return (
+  <div className='list-contain'>
+    <Sidebar />
+  
+    
     <div className='list-add-flex-col'>
-      <p>All Gifts List</p>
+    <div className='title'>
+    <h1 >All Gifts List</h1>
+    </div>
+      
       <div className='list-table'>
         <div className='list-table-format title'>
           <b>Image</b>
@@ -50,21 +58,23 @@ useEffect(()=>{
           <b>Action</b>
         </div>
         {
-          list.map((item,index)=>{
-               return(
-                <div key={index} className='list-table-format'>
-                  <img src={`${url}/images/`+item.image} alt=''/>
-                  <p>{item.name}</p>
-                  <p>{item.category}</p>
-                  <p>{item.price}</p>
-                  <p onClick={()=>removegift(item._id)} className='cursor'>x</p>
-                </div>
-               )
+          list.map((item, index) => {
+            return (
+              <div key={index} className='list-table-format'>
+                <img src={`${url}/images/${item.image}`} alt='' />
+                <p>{item.name}</p>
+                <p>{item.category}</p>
+                <p>{item.price}</p>
+                <p onClick={() => removegift(item._id)} className='cursor'>x</p>
+              </div>
+            )
           })
         }
       </div>
     </div>
-  )
+  </div>
+)
+
 }
 
 export default List

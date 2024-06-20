@@ -7,7 +7,7 @@ import parcel_icon from './parcel_icon.png'
 import checkout from './checkout.png'
 import gift from './gift.png'
 import customer from './customer.png'
-
+import parcel from './parcel.jpeg'
 export const assets = {
     logo,
     add_icon,
@@ -17,7 +17,8 @@ export const assets = {
     parcel_icon,
     checkout,
     gift,
-    customer
+    customer,
+    parcel
 }
 
 export const url = 'http://localhost:4000'

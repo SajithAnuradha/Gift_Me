@@ -4,6 +4,7 @@ import { StoreContext } from '../../../context/StoreContext'
 import {toast} from "react-toastify"
 import axios from 'axios'
 import { assets } from '../../../assets/AdminAssets/assets'
+import Sidebar from '../../../Components/Sidebar/Sidebar'
 const Order = () => {
  const {url}=useContext(StoreContext)
 
@@ -38,13 +39,15 @@ const statusHandler=async (event,orderId)=>{
 
 
   return (
+    <div className='order-contain'>
+      <Sidebar/>
     <div className='order add'>
-      <h3>Order Page</h3>
+      <h1>Order Page</h1>
       <div className="order-list">
         {
           orders.map((order,index)=>(
             <div key={index}className="order-item">
-                     <img src={assets.parcel_icon} alt="" />
+                     <img src={assets.parcel} alt="" />
                      <div>
                       <p className='order-item-gift'>
                         {
@@ -92,6 +95,7 @@ const statusHandler=async (event,orderId)=>{
           ))
         }
       </div>
+    </div>
     </div>
   )
 }

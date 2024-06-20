@@ -13,7 +13,7 @@ function Home() {
 
 
   return (
-    <div>
+    <div >
         <Header/>
         <ExploreMenu category={category} setCategory={setCategory}/>
         <GiftDisplay category={category}/>

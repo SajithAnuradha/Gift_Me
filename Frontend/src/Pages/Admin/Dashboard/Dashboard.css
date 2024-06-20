@@ -1,7 +1,7 @@
 .dashboard {
     display: flex;
     gap: 20px;
-    background-color: #dde6ed;
+    background-color: rgb(154, 189, 241);
     /* height: 100vh; */
     padding: 20px;
 }

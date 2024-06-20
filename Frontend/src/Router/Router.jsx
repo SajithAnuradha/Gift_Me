@@ -34,22 +34,16 @@ const router=createBrowserRouter([
 
             </PrivateadminRoute>
 
-        ),
-        children:[
-            {
-                path:"/admin/add",
-                element:<Add/>
-            }
-        ]
+        )
 
     },
-            // {
-            //     path:'/admin/add',
-            //     element:(
-            //     <PrivateadminRoute>
-            //     <Add/>
-            //     </PrivateadminRoute>)
-            // },
+            {
+                path:'/admin/add',
+                element:(
+                <PrivateadminRoute>
+                <Add/>
+                </PrivateadminRoute>)
+            },
             {
                 path:"admin/list",
                 element:(<PrivateadminRoute>

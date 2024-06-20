@@ -10,7 +10,7 @@
     justify-content: center;
     padding: 20px;
     border-radius: 20px;
-    color: #969393;
+    color: rgb(154, 189, 241);
 }
 
 .feature-container {
@@ -23,7 +23,7 @@
 
 .feature {
     flex: 1;
-    background-color: #dde6ed;
+    background-color: rgb(154, 189, 241);
     padding: 20px;
     border-radius: 10px;
     display: flex;

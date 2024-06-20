@@ -5,6 +5,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useContext } from 'react'
 import { StoreContext } from '../../../context/StoreContext.jsx'
+import Sidebar from '../../../Components/Sidebar/Sidebar'
 function Add() {
         console.log('Add component rendered');
     const {url}=useContext(StoreContext);
@@ -59,7 +60,9 @@ function Add() {
 //    },[data])
 
 return (
-    <div className='add'>
+    <div className='add-container'>
+        <Sidebar/>
+        <div className='add'>
             <form className='flex-col' onSubmit={onSubmitHandler}>
                     <div className="add-img-upload flex-col">
                             <p>Upload Image</p>
@@ -99,6 +102,7 @@ return (
                             ADD
                     </button>
             </form>
+            </div>
     </div>
 )
 }

@@ -1,18 +1,25 @@
 import React from 'react'
 import './Sidebar.css'
-import {assets} from '../../assets/AdminAssets/assets'
+import {assets} from '../../assets/UserAssets/assets'
 import { Link,NavLink } from 'react-router-dom'
 
 function Sidebar() {
   return (
     <div className='sidebar-menu'>
+        
         <div className="logo">
         <Link to='/'>  <img src={assets.logo} alt=''/>
         </Link> 
         </div>
-
+       
 
         <div className='menu-list'>
+        <Link to='/admin/'>
+            <a href='#' className='item'>
+                <img src={assets.add_icon} alt=''/>
+                <p>Dashboard</p>
+
+            </a></Link>
             <Link to='/admin/add'>
             <a href='#' className='item'>
                 <img src={assets.add_icon} alt=''/>
