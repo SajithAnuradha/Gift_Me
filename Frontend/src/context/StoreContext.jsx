@@ -8,12 +8,17 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
     const [cartItems,setCartItems]=useState({});
+
      const url='http://localhost:4000';
+
      const [token,setToken]=useState("")
+
      const [gift_list,setGiftList]=useState([])
+
      const [role,setRole]=useState("")
      
      const fetchGiftList=async ()=>{
+
       const response=await axios.get(url+"/api/gift/list")
       if (response.data.success){
         setGiftList(response.data.data)
@@ -29,12 +34,12 @@ const StoreContextProvider = (props) => {
     
       if (token){
 
-        console.log("fetch role")
+        
       const response=await axios.post(url+"/api/role/find",{},{headers:{token}})
       if (response.data.success ){
         setRole(response.data.data)
         
-        console.log(response.data.data)
+       
 
       }
       
@@ -48,7 +53,7 @@ const StoreContextProvider = (props) => {
 
     const loadCartData=async(token)=>{
       const response=await axios.post(url+"/api/cart/get",{},{headers:{token}})
-      // console.log(response.data.cartData)
+      
     
         setCartItems(response.data.cartData)
       

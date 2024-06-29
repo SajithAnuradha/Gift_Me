@@ -60,6 +60,10 @@ import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 import dashboard_icon from './dashboard_icon.png'
+import bears2 from './bears2.jpeg'
+import perfume from './perfume.jpg'
+import Cards from './Cards.jpeg'
+import cake from './cake.jpg'
 export const assets = {
     logo,
     basket_icon,
@@ -80,21 +84,22 @@ export const assets = {
     logout_icon,
     bag_icon,
     parcel_icon,
-    dashboard_icon
+    dashboard_icon,
+
 }
 
 export const menu_list = [
     {
         menu_name: "Perfume",
-        menu_image: menu_1
+        menu_image: perfume
     },
     {
         menu_name: "Cards",
-        menu_image: menu_2
+        menu_image: Cards
     },
     {
-        menu_name: "Deserts",
-        menu_image: menu_3
+        menu_name: "bears",
+        menu_image: bears2
     },
     {
         menu_name: "Sandwich",
@@ -102,7 +107,7 @@ export const menu_list = [
     },
     {
         menu_name: "Cake",
-        menu_image: menu_5
+        menu_image: cake
     },
     {
         menu_name: "Pure Veg",
