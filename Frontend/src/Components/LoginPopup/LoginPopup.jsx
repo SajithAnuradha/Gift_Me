@@ -11,13 +11,13 @@ function LoginPopup({setShowLogin}) {
 
   const [currentState,setCurrentState]=useState("Sign Up")
   const {url,setToken,role,setRole}=useContext(StoreContext)
-  // setRole(role)
   
   const[data,setData]=useState({
     name:"",
     email:"",
     password:""
   })
+
 
   const onChangeHandler=(event)=>{
     const name=event.target.name;
@@ -38,16 +38,23 @@ function LoginPopup({setShowLogin}) {
     }
     else {
       newUrl+="/api/user/register"
+      console.log("register is working")
+
     }
     
     const response= await axios.post(newUrl,data)
+    console.log(response.data)
     if (response.data.success){
+      
       setToken(response.data.token)
-      // setRole(role)
+      
       localStorage.setItem("token",response.data.token)
       window.location.reload();
       setShowLogin(false)
 
+    }
+    else if (response.data.success===false){
+      toast.error(response.data.message)
     }
     else {
       let newUrl=url;
@@ -71,9 +78,7 @@ function LoginPopup({setShowLogin}) {
 
 
   }
-  // useEffect(()=>{
-  //    console.log(data)
-  // },[data])
+  
 
   return (
     <div className='login-popup'>

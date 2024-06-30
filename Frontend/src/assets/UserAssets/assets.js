@@ -24,6 +24,7 @@ import Cards from './Cards.jpeg'
 import cake from './cake.jpg'
 import box from './box.jpeg'
 import Boquest from './Boquest.jpeg'
+import perfume1 from './perfume1.jpg'
 export const assets = {
     logo,
     basket_icon,
@@ -51,7 +52,7 @@ export const assets = {
 export const menu_list = [
     {
         menu_name: "Perfume",
-        menu_image: perfume
+        menu_image: perfume1
     },
     {
         menu_name: "Cards",
