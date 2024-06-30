@@ -53,7 +53,7 @@ function LoginPopup({setShowLogin}) {
       setShowLogin(false)
 
     }
-    else if (response.data.success===false){
+    else if (response.data.success===false && response.data.message!="user does not exists"){
       toast.error(response.data.message)
     }
     else {
@@ -70,7 +70,7 @@ function LoginPopup({setShowLogin}) {
           window.location.reload();
         }
         else {
-          toast.error(response.data.message)
+          toast.error("User Does not exists")
         }
 
       }
