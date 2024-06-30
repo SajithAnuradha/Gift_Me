@@ -128,6 +128,45 @@ const updateStatus = async (req, res) => {
 
 }
 
+const totalCount = async (req, res) => {
+    try {
+        const Count = await orderModel.countDocuments();
+        res.json({ success: true, count: Count })
+
+    } catch (error) {
+        res.json({ success: false, message: "Error" })
+    }
+
+}
+
+const monthlyCount = async (req, res) => {
+    try {
+        const result = await orderModel.aggregate([
+            {
+                $addFields: {
+                    year: { $year: "$date" },
+                    month: { $month: "$date" }
+                }
+            },
+            {
+                $group: {
+                    _id: { year: "$year", month: "$month" },
+                    count: { $sum: 1 }
+                }
+            },
+            {
+                $sort: { "_id.year": 1, "_id.month": 1 }
+            }
+        ]);
+        res.json({ success: true, result: result });
+
+    } catch (err) {
+        res.json({ success: true, message: err.message })
+
+    }
+
+}
 
 
-export { placeOrder, verifyOrder, userOrders, listOrders, updateStatus }
+
+export { placeOrder, verifyOrder, userOrders, listOrders, updateStatus, totalCount, monthlyCount }

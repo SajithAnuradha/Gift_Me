@@ -81,4 +81,16 @@ const registerUser = async (req, res) => {
 
 }
 
-export { loginUser, registerUser }
+
+const totalCount = async (req, res) => {
+    try {
+
+        const count = await userModel.countDocuments();
+        res.json({ success: true, Count: count });
+    } catch (error) {
+        res.json({ success: false, message: "error" })
+
+    }
+
+}
+export { loginUser, registerUser, totalCount }

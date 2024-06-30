@@ -8,4 +8,5 @@ adminRouter.post('/register', registerAdmin)
 adminRouter.post('/login', loginAdmin)
 
 
+
 export default adminRouter;

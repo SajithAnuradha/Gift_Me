@@ -1,5 +1,5 @@
 import express from 'express';
-import { addgift, listgift, removegift } from '../controllers/giftController.js';
+import { addgift, listgift, removegift, totalCount } from '../controllers/giftController.js';
 import multer from "multer"
 
 
@@ -21,6 +21,7 @@ const upload = multer({ storage: storage })
 giftRouter.post("/add", upload.single("image"), addgift)
 giftRouter.get("/list", listgift)
 giftRouter.post("/remove", removegift)
+giftRouter.get("/count", totalCount)
 
 
 

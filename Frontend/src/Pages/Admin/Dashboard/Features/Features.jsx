@@ -1,12 +1,51 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { assets } from '../../../../assets/AdminAssets/assets'
 import './Features.css'
+import axios from  'axios'
+
 const Features = () => {
-const data = {
+
+
+   const fetchCount=async ()=>{
+    
+      const gifts=await axios.get('http://localhost:4000/api/gift/count')
+      const users=await axios.get('http://localhost:4000/api/user/count')
+      const orders=await axios.get('http://localhost:4000/api/order/count')
+
+     if (gifts.data.success & users.data.success & orders.data.success ){
+        setData({
+            ...data,
+            total_gifts:gifts.data.count,
+            total_customers:users.data.Count,
+            total_orders:orders.data.count
+
+        })
+
+     }
+     else {
+        console.log('Error')
+
+     }
+
+
+   }
+
+
+    const [data, setData] = React.useState(
+    
+                  {
     total_customers: 1000,
     total_orders: 1000,
     total_gifts: 2220
-};
+})
+
+useEffect(()=>{
+    fetchCount();
+},[])
+
+
+
+
 
 const features = [
     {

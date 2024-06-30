@@ -55,7 +55,21 @@ const removegift = async (req, res) => {
     }
 
 }
+const totalCount = async (req, res) => {
+
+    try {
+        const Count = await giftModel.countDocuments();
+        res.json({ success: true, count: Count });
+    }
+    catch (err) {
+        res.json({ success: false, message: "Error" })
+
+    }
 
 
 
-export { addgift, listgift, removegift }
+}
+
+
+
+export { addgift, listgift, removegift, totalCount }
