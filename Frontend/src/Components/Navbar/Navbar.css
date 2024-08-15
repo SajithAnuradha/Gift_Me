@@ -116,6 +116,7 @@
 }
 
 @media (max-width:1050px) {
+
     .navbar .logo {
         width: 140px;
     }
@@ -141,6 +142,10 @@
 }
 
 @media (max-width:900px) {
+    .navbar {
+       
+        margin-left: 50px;
+    }
     .navbar .logo {
         width: 120px;
     }
