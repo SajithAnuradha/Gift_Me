@@ -1,0 +1,40 @@
+.feature-cover img {
+    width: 20%
+}
+
+.feature-cover {
+    background: #fff;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px;
+    color: rgb(154, 189, 241);
+}
+
+.feature-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 2rem;
+
+}
+
+.feature {
+    flex: 1;
+    background-color: rgb(154, 189, 241);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    transition: 0.5s ease-in-out;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+
+}

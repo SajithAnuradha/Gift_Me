@@ -1,13 +1,13 @@
 import React from 'react'
 import './Footer.css'
-import { assets } from '../../assets/assets'
+import { assets } from '../../assets/UserAssets/assets'
 
 function Footer() {
   return (
     <div className='footer' id='footer'>
         <div className='footer-content'>
             <div className="footer-content-left">
-                <img src={assets.logo} alt=''/>
+                <img src={assets.logo} className='logo' alt=''/>
                 <p>This is my contet</p>
                 <div className="footer-social-icons">
                     <img src={assets.facebook_icon} alt="" />

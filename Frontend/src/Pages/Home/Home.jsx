@@ -3,7 +3,7 @@ import './Home.css'
 import Header from '../../Components/Header/Header'
 import ExploreMenu from '../../Components/ExploreMenu/ExploreMenu'
 import { useState } from 'react'
-import FoodDisplay from '../../Components/FoodDisplay/FoodDisplay'
+import GiftDisplay from '../../Components/GiftDisplay/GiftDisplay'
 import AppDownload from '../../Components/AppDownload/AppDownload'
 
 function Home() {
@@ -13,10 +13,10 @@ function Home() {
 
 
   return (
-    <div>
+    <div >
         <Header/>
         <ExploreMenu category={category} setCategory={setCategory}/>
-        <FoodDisplay category={category}/>
+        <GiftDisplay category={category}/>
         <AppDownload/>
     </div>
   )
